@@ -1,14 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<p class="alert" style="color: green"><%= notice %></p>
 
-<h1>Events</h1>
+<div class="text-center">
+  <h1>Все события</h1>
 
-<div id="events">
-  <% @events.each do |event| %>
-    <%= render event %>
-    <p>
-      <%= link_to "Show this event", event %>
-    </p>
-  <% end %>
+  <div class="row buffer-bottom">
+    <%= render partial: "events/event", collection: @events %>
+  </div>
+
+  <div class="text-center">
+    <%= link_to "Создать новое событие", new_event_path, class: "text-center btn btn-success buffer-top" %>
+  </div>
 </div>
-
-<%= link_to "New event", new_event_path %>

@@ -1,17 +1,28 @@
 <%= form_with(model: event) do |form| %>
-  <% if event.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-        <% event.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render partial: "partials/form_errors", locals: {model: @event} %>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.label :title, "Название" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group mt-2">
+    <%= form.label :address, "Адрес" %>
+    <%= form.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group mt-2">
+    <%= form.label :datetime, "Дата и время" %>
+    <%= form.datetime_select :datetime, class: "datepicker" %>
+  </div>
+
+  <div class="form-group mt-2">
+    <%= form.label :description, "Описание" %>
+    <%= form.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="actions margin-top mt-4">
+    <%= form.submit "Сохранить", class: "btn btn-success" %> или <%= link_to "вернуться", :back %>
   </div>
 <% end %>

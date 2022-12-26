@@ -1,10 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<p class="alert" style="color: green"><%= notice %></p>
 
-<%= render @user %>
+<div class="text-center">
+  <h1><%= @user.name %></h1>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <p class="buffer-top">
+    <%= link_to "Редактировать профиль", edit_user_path(@user), class: "btn btn-primary" %>
+  </p>
 </div>
