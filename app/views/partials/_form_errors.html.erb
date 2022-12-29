@@ -1,15 +1,16 @@
 <% errors = model.errors %>
 
 <% if errors.any? %>
-  <div class="alert alert-danger">
-    <div class="lead">
+  <div class="row alert alert-danger d-flex justify-content-between">
+    <div class="col-6">
       В вашей форме <%= errors.count %> ошибок
+      <ul>
+        <% errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
 
-    <ul>
-      <% errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 <% end %>

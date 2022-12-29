@@ -1,29 +1,54 @@
-<h2>Регистрация</h2>
+<div class="row d-flex justify-content-center">
+  <h2>Регистрация пользователя</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="col-sm-3 mt-3">
+      <%= f.label :email, "Email", class: "col-sm-1 col-form-label" %>
+      <div class="input-group">
+        <div class="input-group-text"><i class="bi bi-mailbox"></i></div>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",
+                          placeholder: "example@example.com" %>
+      </div>
+    </div>
+
+    <div class="col-sm-3 mt-1">
+      <%= f.label :name, "Имя", class: "col-sm-1 col-form-label" %>
+      <div class="input-group">
+        <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control",
+                         placeholder: "Иван" %>
+      </div>
+    </div>
+
+    <div class="col-sm-3 mt-1">
+      <%= f.label :password, "Пароль", class: "col-sm-2 col-form-label" %>
+      <% if @minimum_password_length %>
+      <em>(Не менее <%= @minimum_password_length %> символов)</em>
+      <% end %>
+      <div class="input-group">
+        <div class="input-group-text"><i class="bi bi-key-fill"></i></div>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control",
+                             placeholder: "******" %>
+      </div>
+    </div>
+
+    <div class="col-sm-3 mt-1">
+      <%= f.label :password_confirmation, "Подтверждение пароля", class: "col-sm-8 col-form-label" %>
+      <div class="input-group">
+        <div class="input-group-text"><i class="bi bi-key-fill"></i></div>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control",
+                             placeholder: "******" %>
+      </div>
+    </div>
+
+    <div class="buffer-top">
+      <%= f.submit "Зарегистрироваться", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <div class="mt-2">
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
