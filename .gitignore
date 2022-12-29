@@ -35,4 +35,4 @@
 
 /node_modules
 
-/config/database.yml.example
+/config/database.yml
