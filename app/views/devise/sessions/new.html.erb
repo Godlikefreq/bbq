@@ -4,7 +4,7 @@
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
     <div class="col-sm-3 mt-3">
-      <%= f.label :email, "Email", class: "col-sm-1 col-form-label" %>
+      <%= f.label :email, class: "col-sm-1 col-form-label" %>
       <div class="input-group">
         <div class="input-group-text"><i class="bi bi-mailbox"></i></div>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",
@@ -13,7 +13,7 @@
     </div>
 
     <div class="col-sm-3 mt-1">
-      <%= f.label :password, "Пароль", class: "col-sm-2 col-form-label" %>
+      <%= f.label :password, class: "col-sm-2 col-form-label" %>
       <div class="input-group">
         <div class="input-group-text"><i class="bi bi-key-fill"></i></div>
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control",
@@ -29,7 +29,7 @@
     <% end %>
 
     <div class="buffer-top">
-      <%= f.submit "Войти", class: "btn btn-primary" %>
+      <%= f.submit t("link.log_in"), class: "btn btn-primary" %>
     </div>
   <% end %>
 

@@ -24,6 +24,24 @@ ru:
   app:
     name: "Barbeque"
     company: "Хороший программист"
+  turbo:
+    confirm: "Вы уверены?"
+  button:
+    sign_in: "Зарегистрироваться"
+    edit_user: "Редактировать профиль"
+    save: "Сохранить"
+    delete: "Удалить"
+    edit_event: "Изменить"
+    new_event: "Создать новое событие"
+    send_instruction: "Выслать инструкцию по восстановлению"
+  link:
+    edit_password: "Сменить пароль"
+    back: "вернуться"
+    profile: "Профиль"
+    log_out: "Выйти"
+    log_in: "Войти"
+    sign_in: "Зарегистрироваться"
+    forgot_password: "Забыли пароль?"
   error:
     one: "%{count} ошибка"
     few: "%{count} ошибки"
