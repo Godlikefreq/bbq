@@ -22,7 +22,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to event_url(@event), notice: "Событие создано!" }
+        format.html { redirect_to event_url(@event), notice: I18n.t("controllers.events.created") }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to event_url(@event), notice: "Событие отредактировано." }
+        format.html { redirect_to event_url(@event), notice: I18n.t("controllers.events.updated") }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url, notice: "Событие было успешно удалено." }
+      format.html { redirect_to events_url, notice: I18n.t("controllers.events.destroyed") }
     end
   end
 

@@ -1,9 +1,9 @@
 <% errors = model.errors %>
 
 <% if errors.any? %>
-  <div class="row alert alert-danger d-flex justify-content-between">
-    <div class="col-6">
-      В вашей форме <%= errors.count %> ошибок
+  <div class="row alert alert-danger alert-dismissible">
+    <div class="col-sm-6">
+      <p>В вашей форме <%= I18n.t("error", count: errors.count) %></p>
       <ul>
         <% errors.each do |error| %>
           <li><%= error.full_message %></li>

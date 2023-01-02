@@ -1,28 +1,40 @@
 <%= form_with(model: @event) do |form| %>
+  <%= render partial: "partials/form_errors", locals: { model: @event } %>
 
-  <%= render partial: "partials/form_errors", locals: {model: @event} %>
-
-  <div class="form-group">
-    <%= form.label :title, "Название" %>
-    <%= form.text_field :title, class: "form-control" %>
+  <div class="col-sm-6 mt-3">
+    <%= form.label :title, class: "col-sm-12 col-form-label" %>
+    <div class="input-group">
+      <div class="input-group-text"><i class="bi bi-pen"></i></div>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="form-group mt-2">
-    <%= form.label :address, "Адрес" %>
-    <%= form.text_field :address, class: "form-control" %>
+  <div class="col-sm-6 mt-1">
+    <%= form.label :address, class: "col-sm-12 col-form-label" %>
+    <div class="input-group">
+      <div class="input-group-text"><i class="bi bi-geo-alt-fill"></i></div>
+      <%= form.text_field :address, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="form-group mt-2">
-    <%= form.label :datetime, "Дата и время" %>
-    <%= form.datetime_select :datetime, class: "datepicker" %>
+  <div class="col-sm-6 mt-1">
+    <%= form.label :datetime, class: "col-sm-12 col-form-label" %>
+    <div class="input-group">
+      <div class="input-group-text"><i class="bi bi-calendar"></i></div>
+      <%= form.datetime_select :datetime, class: "datepicker" %>
+    </div>
   </div>
 
-  <div class="form-group mt-2">
-    <%= form.label :description, "Описание" %>
-    <%= form.text_area :description, class: "form-control" %>
+  <div class="col-sm-6 mt-1">
+    <%= form.label :description, class: "col-sm-12 col-form-label" %>
+    <div class="input-group">
+      <div class="input-group-text"><i class="bi bi-clipboard"></i></div>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="actions margin-top mt-4">
+  <div class="actions mt-4">
     <%= form.submit "Сохранить", class: "btn btn-success" %> или <%= link_to "вернуться", :back %>
   </div>
 <% end %>
+

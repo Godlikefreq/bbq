@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "Информация о пользователе обновлена." }
+        format.html { redirect_to user_url(@user), notice: I18n.t("controllers.users.updated") }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
