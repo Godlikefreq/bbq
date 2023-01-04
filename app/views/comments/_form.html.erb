@@ -1,0 +1,25 @@
+<%= form_for [@event, comment] do |form| %>
+  <%= render partial: "partials/form_errors", locals: { model: comment } %>
+
+  <div class="col-sm-8 mt-3">
+    <%= form.label :body, class: "col-sm-6 col-form-label" %>
+    <div class="input-group">
+      <div class="input-group-text"><i class="bi bi-clipboard"></i></div>
+      <%= form.text_area :body, class: "form-control" %>
+    </div>
+  </div>
+
+  <% unless user_signed_in? %>
+    <div class="col-sm-8 mt-1">
+      <%= form.label :user_name, class: "col-sm-6 col-form-label" %>
+      <div class="input-group">
+        <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+        <%= form.text_field :user_name, class: "form-control" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mt-4">
+    <%= form.submit t("button.send"), class: "btn btn-primary" %>
+  </div>
+<% end %>

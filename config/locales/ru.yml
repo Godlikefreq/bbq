@@ -3,6 +3,8 @@ ru:
     models:
       user: "Пользователь"
       event: "Событие"
+      comment: "Комментарий"
+      subscription: "Подписка"
     attributes:
       user:
         email: "Email"
@@ -14,6 +16,12 @@ ru:
         address: "Место проведения"
         datetime: "Дата и время"
         description: "Описание"
+      comment:
+        body: "Текст"
+        user_name: "Имя"
+      subscription:
+        user_name: "Имя"
+        user_email: "Email"
   controllers:
     events:
       created: "Событие было успешно создано"
@@ -21,6 +29,14 @@ ru:
       destroyed: "Событие удалено"
     users:
       updated: "Профиль успешно обновлён"
+    comments:
+      created: "Комментарий успешно добавлен"
+      destroyed: "Комментарий удалён"
+      error: "Ошибка комментария"
+    subscriptions:
+      created: "Вы подписаны на это событие"
+      destroyed: "Вы отписались от этого события"
+      error: "Ошибка подписки"
   app:
     name: "Barbeque"
     company: "Хороший программист"
@@ -34,6 +50,8 @@ ru:
     edit_event: "Изменить"
     new_event: "Создать новое событие"
     send_instruction: "Выслать инструкцию по восстановлению"
+    send: "Отправить"
+    subscribe: "Подписаться"
   link:
     edit_password: "Сменить пароль"
     back: "вернуться"

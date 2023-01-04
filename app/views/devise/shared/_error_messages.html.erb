@@ -1,6 +1,6 @@
 <% if resource.errors.any? %>
   <div class="row alert alert-danger alert-dismissible" id="error_explanation">
-    <div class="col-sm-6">
+    <div class="col-12">
       <p>В вашей форме <%= I18n.t("error", count: resource.errors.count) %></p>
       <ul>
         <% resource.errors.full_messages.each do |message| %>
