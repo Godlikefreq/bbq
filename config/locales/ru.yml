@@ -1,5 +1,11 @@
 ru:
   activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            base:
+              self_subscribe: "Нельзя подписаться на своё событие"
     models:
       user: "Пользователь"
       event: "Событие"
