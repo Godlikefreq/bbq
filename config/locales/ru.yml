@@ -4,9 +4,9 @@ ru:
       models:
         subscription:
           attributes:
-            base:
-              self_subscribe: "Нельзя подписаться на своё событие"
-              existing_email: "Данный email уже занят другим пользователем"
+            user_email:
+              self_subscription: "Нельзя подписаться на своё событие"
+              email_presence: "уже занят другим пользователем"
     models:
       user: "Пользователь"
       event: "Событие"
