@@ -18,6 +18,7 @@ ru:
         name: "Имя"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+        avatar: "Аватар"
       event:
         title: "Название"
         address: "Место проведения"
@@ -29,6 +30,8 @@ ru:
       subscription:
         user_name: "Имя"
         user_email: "Email"
+      photo:
+        photo: "Фото"
   controllers:
     events:
       created: "Событие было успешно создано"
@@ -44,6 +47,10 @@ ru:
       created: "Вы подписаны на это событие"
       destroyed: "Вы отписались от этого события"
       error: "Ошибка подписки"
+    photos:
+      created: "Фото успешно загружено"
+      destroyed: "Фото удалено"
+      error: "Ошибка загрузки фото"
   app:
     name: "Barbeque"
     company: "Хороший программист"
@@ -59,6 +66,7 @@ ru:
     send_instruction: "Выслать инструкцию по восстановлению"
     send: "Отправить"
     subscribe: "Подписаться"
+    upload: "Загрузить"
   link:
     edit_password: "Сменить пароль"
     back: "вернуться"

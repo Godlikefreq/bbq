@@ -1,0 +1,15 @@
+<%= form_for [@event, photo], html: { multipart: true } do |form| %>
+  <%= render partial: "partials/form_errors", locals: { model: photo } %>
+
+  <div class="col-sm-8 mt-3">
+    <%= form.label :photo, class: "col-sm-3 col-form-label" %>
+    <div class="input-group">
+      <div class="input-group-text"><i class="bi bi-image"></i></div>
+      <%= form.file_field :photo, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit t("button.upload"), class: "btn btn-primary" %>
+  </div>
+<% end %>

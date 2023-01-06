@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: I18n.t("controllers.users.updated") }
+        format.html { redirect_to user_url(@user), notice: t("controllers.users.updated") }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :avatar)
   end
 end

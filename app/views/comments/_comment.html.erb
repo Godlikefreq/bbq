@@ -1,6 +1,6 @@
-<div class="buffer-bottom">
-  <p><%= comment.body %></p>
-  <p>
+<div class="buffer-bottom card">
+  <div class="card-body"><%= comment.body %></div>
+  <div class="card-footer text-muted d-flex">
     <span>
       <% if comment.user.present? %>
         <%= render partial: "users/user", object: comment.user %>
@@ -8,10 +8,10 @@
         <em><strong><%= comment.user_name %></strong></em>
       <% end %>
     </span>
-    <em><%= l comment.created_at, format: :long %></em>
+    <em class="mx-4"><%= l comment.created_at, format: :long %></em>
     <% if current_user_can_edit?(comment) %>
       <%= link_to '<i class="bi bi-trash3"></i>'.html_safe, event_comment_path(comment.event, comment),
-            data: { turbo_method: :delete, turbo_confirm: t("turbo.confirm") } %>
+            data: { turbo_method: :delete, turbo_confirm: t("turbo.confirm") }, class: "ms-auto"%>
     <% end %>
-  </p>
+  </div>
 </div>

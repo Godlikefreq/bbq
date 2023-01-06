@@ -17,6 +17,15 @@
     </div>
   </div>
 
+  <div class="col-sm-3 mt-1">
+    <%= form.label :avatar, class: "col-sm-1 col-form-label" %>
+    <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
+    <div class="input-group">
+      <div class="input-group-text"><i class="bi bi-person-bounding-box"></i></div>
+      <%= form.file_field :avatar, class: "form-control" %>
+    </div>
+  </div>
+
   <div class="mt-4">
     <%= form.submit t("button.save"), class: "btn btn-success" %> или <%= link_to t("link.back"), :back %>
   </div>
