@@ -55,7 +55,8 @@
 
   <h3 class="mt-5">Удалить аккаунт</h3>
 
-  <p>Не понравилось у нас? <%= button_to "Удалить мой аккаунт", registration_path(resource_name),
+  <p>Не понравилось у нас? </p>
+  <p><%= link_to "Удалить мой аккаунт", registration_path(resource_name),
                                          class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Вы уверены?" } %></p>
 
   <%= link_to "Вернуться", :back %>
