@@ -8,6 +8,7 @@ class SubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @new_subscription.save
+        EventMailer.subscription(@event, @new_subscription).deliver_now
         format.html { redirect_to @event, notice: t("controllers.subscriptions.created") }
       else
         format.html { render "events/show", status: :unprocessable_entity }

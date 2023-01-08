@@ -9,7 +9,8 @@
       <%= f.label :email, class: "col-sm-1 col-form-label" %>
       <div class="input-group">
         <div class="input-group-text"><i class="bi bi-mailbox"></i></div>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",
+                          placeholder: "example@example.com" %>
       </div>
     </div>
 

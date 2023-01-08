@@ -2,8 +2,6 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  validates :event, presence: true
-
   with_options if: -> { user.present? } do
     validate :self_subscription
     validates :user, uniqueness: { scope: :event_id }
