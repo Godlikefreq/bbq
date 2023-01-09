@@ -75,6 +75,7 @@ ru:
     log_in: "Войти"
     sign_in: "Зарегистрироваться"
     forgot_password: "Забыли пароль?"
+    change_password: "Сменить пароль"
   error:
     one: "%{count} ошибка"
     few: "%{count} ошибки"
