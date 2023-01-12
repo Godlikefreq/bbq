@@ -10,7 +10,7 @@
 
       <div class="event-info-inner row">
         <div class="col-md-6">
-          <div class="event-description">
+          <div class="event-description p-4">
             <h1><%= @event.title %></h1>
             <h3><%= l @event.datetime, format: :long %></h3>
             <h3>
@@ -22,12 +22,16 @@
           </div>
 
           <% if current_user_can_edit?(@event) %>
-            <div class="buffer-top">
+            <div class="buffer-top p-4">
               <%= link_to t("button.edit_event"), edit_event_path(@event), class: "btn btn-primary mb-2" %>
               <%= link_to t("button.delete"), event_path(@event),
                           data: { turbo_method: :delete, turbo_confirm: t("turbo.confirm") }, class: "btn btn-danger mb-2 mx-2" %>
             </div>
           <% end %>
+        </div>
+
+        <div class="col-md-6">
+          <div id="map" data-address="<%= @event.address %>" style="width: 600px; height: 500px" class="p-3"></div>
         </div>
       </div>
     </div>

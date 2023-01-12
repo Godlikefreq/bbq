@@ -33,6 +33,14 @@
     </div>
   </div>
 
+  <div class="col-sm-6 mt-1">
+    <%= form.label :pincode, class: "col-sm-12 col-form-label" %>
+    <div class="input-group">
+      <div class="input-group-text"><i class="bi bi-key-fill"></i></div>
+      <%= form.text_field :pincode, class: "form-control" %>
+    </div>
+  </div>
+
   <div class="mt-4">
     <%= form.submit t("button.save"), class: "btn btn-success" %> или <%= link_to t("link.back"), :back %>
   </div>
