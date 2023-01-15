@@ -2,9 +2,9 @@ document.addEventListener("turbo:load", function () {
     ymaps.ready(init);
 
     function init() {
-        address = document.getElementById('map').getAttribute('data-address');
+        address = document.getElementById("map").getAttribute("data-address");
 
-        var myMap = new ymaps.Map("map", {
+        myMap = new ymaps.Map("map", {
             center: [55.76, 37.64],
             zoom: 10
         });
