@@ -82,6 +82,9 @@ ru:
     one: "%{count} ошибка"
     few: "%{count} ошибки"
     many: "%{count} ошибок"
+  text:
+    photo:
+      added_by: "Добавил:"
   event_mailer:
     comment:
       title: "Новый комментарий"
