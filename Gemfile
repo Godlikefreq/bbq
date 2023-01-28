@@ -28,6 +28,13 @@ end
 
 group :development do
   gem "web-console"
+  gem "capistrano"
+  gem "capistrano-rails"
+  gem "capistrano-passenger"
+  gem "capistrano-rbenv"
+  gem "capistrano-bundler"
+  gem "ed25519"
+  gem "bcrypt_pbkdf"
 end
 
 group :production do
