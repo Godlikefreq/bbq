@@ -6,6 +6,8 @@
   </div>
 
   <div class="text-center">
-    <%= link_to t("button.new_event"), new_event_path, class: "text-center btn btn-success buffer-top" %>
+    <% if policy(Event).create? %>
+      <%= link_to t("button.new_event"), new_event_path, class: "text-center btn btn-success buffer-top" %>
+    <% end %>
   </div>
 </div>

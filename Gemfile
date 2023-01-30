@@ -3,27 +3,29 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem "bootsnap", require: false
 gem "carrierwave"
+gem "cssbundling-rails"
 gem "devise"
 gem "devise-i18n"
-gem "mailjet"
 gem "dotenv-rails"
+gem "jbuilder"
+gem "jsbundling-rails"
+gem "mailjet"
+gem "puma", "~> 5.0"
+gem "pundit"
 gem "rails-i18n"
 gem "rails", "~> 7.0.4"
 gem "rmagick"
 gem "sprockets-rails"
-gem "puma", "~> 5.0"
-gem "jsbundling-rails"
-gem "turbo-rails"
 gem "stimulus-rails"
-gem "cssbundling-rails"
-gem "jbuilder"
+gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-gem "bootsnap", require: false
 
 group :development, :test do
   gem "pg", "~> 1.1"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "rspec-rails"
 end
 
 group :development do
