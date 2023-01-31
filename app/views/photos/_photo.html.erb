@@ -1,4 +1,4 @@
-<a href="<%= photo.photo.url %>" data-gallery="example-gallery" data-toggle="lightbox" class="photo-icon"
+<a href="<%= photo.photo.url %>" data-gallery="example-gallery" data-toggle="lightbox" class="col-sm-2"
    data-caption='
    <%= t("text.photo.added_by") %> <%= render partial: "users/user", object: photo.user %>
      <% if current_user_can_edit?(photo) %>
@@ -6,5 +6,5 @@
                 data: { turbo_method: :delete, turbo_confirm: t("turbo.confirm") } %>
      <% end %>
 '>
-  <img src="<%= photo.photo.thumb.url %>">
+  <img src="<%= photo.photo.thumb.url %>" class="img-fluid">
 </a>
