@@ -82,6 +82,9 @@ ru:
     one: "%{count} ошибка"
     few: "%{count} ошибки"
     many: "%{count} ошибок"
+  errors:
+    messages:
+      extension_whitelist_error: "- недопустимый формат файла"
   text:
     photo:
       added_by: "Добавил:"
