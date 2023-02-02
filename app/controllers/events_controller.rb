@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[ show index ]
   before_action :set_event, only: %i[ show edit update destroy ]
-  #before_action :pincode_save, only: %i[ show ]
 
   after_action :verify_authorized, except: %i[ show index ]
 
@@ -72,6 +71,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
   end
-
-
 end
