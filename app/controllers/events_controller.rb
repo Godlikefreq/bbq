@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[ show index ]
-  before_action :set_event, only: %i[ show ]
-  before_action :password_guard!, only: %i[ show ]
+  before_action :set_event, only: %i[ show edit update destroy ]
+  #before_action :pincode_save, only: %i[ show ]
 
   after_action :verify_authorized, except: %i[ show index ]
 
@@ -13,6 +13,11 @@ class EventsController < ApplicationController
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
     @new_photo = @event.photos.build(params[:photo])
+
+    authorize @event
+  rescue Pundit::NotAuthorizedError
+    flash.now[:alert] = t("controllers.events.wrong_pincode") if params[:pincode].present?
+    render "password_form"
   end
 
   def new
@@ -68,17 +73,5 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
   end
 
-  def password_guard!
-    return true if @event.pincode.blank?
-    return true if signed_in? && current_user == @event.user
 
-    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
-      cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
-    end
-
-    unless @event.pincode_valid?(cookies.permanent["events_#{@event.id}_pincode"])
-      flash.now[:alert] = t("controllers.events.wrong_pincode") if params[:pincode].present?
-      render "password_form"
-    end
-  end
 end
