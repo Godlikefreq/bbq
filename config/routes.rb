@@ -1,5 +1,9 @@
+require "resque_web"
+
 Rails.application.routes.draw do
   devise_for :users
+
+  mount ResqueWeb::Engine => "/resque_web"
 
   root "events#index"
 
