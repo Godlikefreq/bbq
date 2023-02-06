@@ -1,4 +1,4 @@
-<a href="<%= photo.photo.url %>" data-gallery="example-gallery" data-toggle="lightbox" class="col-sm-2"
+<a href="<%= photo.photo.url %>" data-gallery="example-gallery" data-toggle="lightbox" class="col-sm-2 mb-2 photo-icon"
    data-caption='
    <%= t("text.photo.added_by") %> <%= render partial: "users/user", object: photo.user %>
      <% if current_user_can_edit?(photo) %>

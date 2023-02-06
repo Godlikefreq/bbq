@@ -29,7 +29,7 @@ RSpec.describe EventPolicy do
       let(:event) { Event.create }
 
       it "does not allow user to edit, update and destroy" do
-        expect(subject).not_to permit(user, event)
+        expect(subject).not_to permit(user.user, event)
       end
     end
   end
