@@ -159,12 +159,16 @@ GEM
       thor (>= 0.14, < 2.0)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
+    launchy (2.5.2)
+      addressable (~> 2.8)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (4.0.0)
       actionpack (>= 4)
       less (~> 2.6.0)
       sprockets (>= 2)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -378,6 +382,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder
   jsbundling-rails
+  letter_opener
   mailjet
   pg (~> 1.1)
   puma (~> 5.0)

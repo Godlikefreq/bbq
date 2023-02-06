@@ -40,6 +40,7 @@ group :development do
   gem "capistrano-bundler"
   gem "ed25519"
   gem "bcrypt_pbkdf"
+  gem "letter_opener"
 end
 
 group :production do
