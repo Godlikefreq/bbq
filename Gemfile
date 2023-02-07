@@ -18,6 +18,7 @@ gem "pundit"
 gem "rails-i18n"
 gem "rails", "~> 7.0.4"
 gem "resque"
+gem "resque-web", require: "resque_web"
 gem "rmagick"
 gem "sprockets-rails"
 gem "stimulus-rails"
@@ -41,7 +42,6 @@ group :development do
   gem "ed25519"
   gem "bcrypt_pbkdf"
   gem "letter_opener"
-  gem "resque-web", require: "resque_web"
 end
 
 group :production do
