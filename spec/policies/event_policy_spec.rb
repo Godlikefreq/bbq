@@ -7,12 +7,18 @@ RSpec.describe EventPolicy do
   subject { described_class }
 
   permissions :create? do
-    it "lets user to create" do
-      expect(subject).to permit(user, Event)
+    context "user presented" do
+      it "lets user to create" do
+        expect(subject).to permit(user, Event)
+      end
     end
 
-    it "do not let visitor to create" do
-      expect(subject).not_to permit(nil, Event)
+    context "user is not presented" do
+      let(:user) { UserContext.new(nil, { pincode: "", cookies: cookies }) }
+
+      it "do not let visitor to create" do
+        expect(subject).not_to permit(user, Event)
+      end
     end
   end
 
@@ -21,7 +27,7 @@ RSpec.describe EventPolicy do
       let(:event) { Event.create(user: user.user) }
 
       it "allows user to edit, update and destroy" do
-        expect(subject).to permit(user.user, event)
+        expect(subject).to permit(user, event)
       end
     end
 
@@ -29,7 +35,7 @@ RSpec.describe EventPolicy do
       let(:event) { Event.create }
 
       it "does not allow user to edit, update and destroy" do
-        expect(subject).not_to permit(user.user, event)
+        expect(subject).not_to permit(user, event)
       end
     end
   end
@@ -39,7 +45,7 @@ RSpec.describe EventPolicy do
       let(:event) { Event.create }
 
       it "shows event" do
-        expect(subject).to permit(user.user, event)
+        expect(subject).to permit(user, event)
       end
     end
 
@@ -50,7 +56,7 @@ RSpec.describe EventPolicy do
         let(:event) { Event.create(pincode: "123", user: user.user) }
 
         it "shows event" do
-          expect(subject).to permit(user.user, event)
+          expect(subject).to permit(user, event)
         end
       end
 

@@ -6,7 +6,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present?
+    user.user.present?
   end
 
   def update?
@@ -24,7 +24,7 @@ class EventPolicy < ApplicationPolicy
   private
 
   def user_is_owner?(record)
-    user.present? && (record.user == user)
+    user.user.present? && (record.user == user.user)
   end
 
   def pincode_passed?
