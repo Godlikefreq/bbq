@@ -6,23 +6,21 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    respond_to do |format|
-      if @new_subscription.save
-        EventMailer.subscription(@event, @new_subscription).deliver_later
-        format.html { redirect_to @event, notice: t("controllers.subscriptions.created") }
-      else
-        format.html { render "events/show", status: :unprocessable_entity }
-      end
+    if @new_subscription.save
+      EventNotificationJob.perform_later(@new_subscription)
+      redirect_to @event, notice: t("controllers.subscriptions.created")
+    else
+      render "events/show", status: :unprocessable_entity
     end
   end
 
   def destroy
-    message = {notice: t("controllers.subscriptions.destroyed")}
+    message = { notice: t("controllers.subscriptions.destroyed") }
 
     if current_user_can_edit?(@subscription)
       @subscription.destroy!
     else
-      message = {status: :unprocessable_entity}
+      message = { status: :unprocessable_entity }
     end
 
     redirect_to @event, message

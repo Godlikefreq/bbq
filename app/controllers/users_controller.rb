@@ -10,12 +10,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: t("controllers.users.updated") }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @user.update(user_params)
+      redirect_to user_url(@user), notice: t("controllers.users.updated")
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
