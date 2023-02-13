@@ -2,9 +2,9 @@ require 'rails_helper'
 include ActiveJob::TestHelper
 
 RSpec.describe EventNotificationJob, type: :job do
-  let!(:user1) { FactoryBot.create(:user, email: 'hi@hi.com', name: "Vasya") }
-  let!(:event) { FactoryBot.create(:event, user: user1, title: "Party") }
-  let!(:user2) { FactoryBot.create(:user, email: 'bye@bye.com', name: "Petya") }
+  let!(:user1) { FactoryBot.create(:user) }
+  let!(:event) { FactoryBot.create(:event, user: user1) }
+  let!(:user2) { FactoryBot.create(:user) }
   let!(:object) { FactoryBot.create(:subscription, event: event, user: user2) }
 
   before do
