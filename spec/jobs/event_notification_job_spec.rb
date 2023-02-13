@@ -2,15 +2,34 @@ require 'rails_helper'
 include ActiveJob::TestHelper
 
 RSpec.describe EventNotificationJob, type: :job do
-  let!(:user1) { User.create(email: 'hi@hi.com') }
-  let!(:event) { Event.create(user: user1) }
-  let!(:user2) { User.create(email: 'bye@bye.com') }
+  let!(:user1) { FactoryBot.create(:user, email: 'hi@hi.com', name: "Vasya") }
+  let!(:event) { FactoryBot.create(:event, user: user1, title: "Party") }
+  let!(:user2) { FactoryBot.create(:user, email: 'bye@bye.com', name: "Petya") }
+  let!(:object) { FactoryBot.create(:subscription, event: event, user: user2) }
 
   before do
-    Subscription.create(user: user2, body: "Hello!")
+    object.save
+    event.save
   end
 
+  it "creates a job" do
+    ActiveJob::Base.queue_adapter = :test
+    expect { EventNotificationJob.perform_later(object) }.to have_enqueued_job.on_queue('default')
+  end
 
+  it "sends notification" do
+    expect {
+      perform_enqueued_jobs do
+        EventNotificationJob.perform_later(object)
+      end }.to change { ActionMailer::Base.deliveries.size }.by(1)
+  end
 
+  it "is sent to right user" do
+    perform_enqueued_jobs do
+      EventNotificationJob.perform_later(object)
+    end
 
+    mail = ActionMailer::Base.deliveries.last
+    expect(mail.to[0]).to eq user1.email
+  end
 end

@@ -149,6 +149,11 @@ GEM
     et-orbi (1.2.7)
       tzinfo
     execjs (2.8.1)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -436,6 +441,7 @@ DEPENDENCIES
   devise-i18n
   dotenv-rails
   ed25519
+  factory_bot_rails
   font-awesome-sass
   jbuilder
   jsbundling-rails
