@@ -31,7 +31,6 @@ class User < ApplicationRecord
                          url: data['urls'].values[0],
                          provider: access_token.provider
       )
-      debugger
     end
     user
   end
