@@ -7,11 +7,6 @@ RSpec.describe EventNotificationJob, type: :job do
   let!(:user2) { FactoryBot.create(:user) }
   let!(:object) { FactoryBot.create(:subscription, event: event, user: user2) }
 
-  before do
-    object.save
-    event.save
-  end
-
   it "creates a job" do
     ActiveJob::Base.queue_adapter = :test
     expect { EventNotificationJob.perform_later(object) }.to have_enqueued_job.on_queue('default')
