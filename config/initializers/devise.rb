@@ -274,7 +274,7 @@ Devise.setup do |config|
   config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
   OmniAuth.config.logger = Rails.logger if Rails.env.development?
 
-  config.omniauth :vkontakte, ENV['VK_API_ID'], ENV['VK_API_SECRET']
+  config.omniauth :vkontakte, ENV['VK_API_ID'], ENV['VK_API_SECRET'], scope: 'photos, email'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
