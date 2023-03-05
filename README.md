@@ -1,5 +1,5 @@
 # Description
-Application to plan events.
+Application to plan events (with calendar, map, photo-sharing and e-mail notifications). 
 
 ## Supported features
 - Registration&Authorization ([**Devise**](https://github.com/heartcombo/devise))
